@@ -5,7 +5,7 @@
 ## Архітектура
 
 Цей додаток є веб-сервером, який надає RESTful API для взаємодії.
-Для взаємодії з цим RESTful API існує (користувацький інтерфейс)[https://github.com/bartoshyk/house-prices-ui].
+Для взаємодії з цим RESTful API існує [користувацький інтерфейс](https://github.com/bartoshyk/house-prices-ui)
 
 ## Потрібні бібліотеки та інструменти
 
