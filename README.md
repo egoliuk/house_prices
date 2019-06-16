@@ -12,6 +12,9 @@
 * Python 3.6
 * pip 19.0.3
 * Flask 1.0.2
+* Flask-WTF
+* Flask-SQLAlchemy
+* Flask-Migrate
 * scikit-learn
 
 ## Опис алгоритму обробки даних та прогнозування
@@ -46,6 +49,27 @@ pip install flask
 export FLASK_APP=house_prices.py
 ```
 
+Встановити Flask-WTF
+```sh
+pip install flask-wtf
+```
+Flask-WTF - це розширення до Flask, для роботи за веб-формами. 
+Воно є обгорткою навколо WTForms.
+
+Встановити Flask-SQLAlchemy
+```sh
+pip install flask-sqlalchemy
+```
+Flask-SQLAlchemy - це розширення для Flask, 
+яке є обгорткою для популярного ORM пакета SQLAlchemy.
+
+Встановити Flask-Migrate
+```sh
+pip install flask-migrate
+```
+Flask-Migrate - це розширення для Flask, 
+яке є обгорткою для Alembic, основи для міграцію біз даних SQLAlchemy.
+
 Для деактивації віртуального оточення введіть
 ```sh
 deactivate
@@ -53,10 +77,19 @@ deactivate
 
 ## Запуск
 
+Активувати попередньо налаштоване віртуальне середовище
+```sh
+source venv/bin/activate
+```
+
 Запустити веб додаток
 ```sh
 flask run
 ```
 
-Для зупинки натисніть `CTRL+C`
+Для зупинки додатку натисніть `CTRL+C`
 
+Для деактивації віртуального оточення введіть
+```sh
+deactivate
+```
