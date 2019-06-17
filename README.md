@@ -15,6 +15,8 @@
 * Flask-WTF
 * Flask-SQLAlchemy
 * Flask-Migrate
+* Flask-Login
+* Werkzeug (залежність Flask)
 * scikit-learn
 
 ## Опис алгоритму обробки даних та прогнозування
@@ -69,6 +71,11 @@ pip install flask-migrate
 ```
 Flask-Migrate - це розширення для Flask, 
 яке є обгорткою для Alembic, основи для міграцію біз даних SQLAlchemy.
+
+Встановити Flask-Login
+```sh
+pip install flask-login
+```
 
 Для деактивації віртуального оточення введіть
 ```sh
