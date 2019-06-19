@@ -15,6 +15,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    last_visit = db.Column(db.DateTime, default=datetime.utcnow)
     created = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     updated = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     houses = db.relationship('House', backref='purveyor', lazy='dynamic')
