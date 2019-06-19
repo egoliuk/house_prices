@@ -13,15 +13,16 @@ from app.models import User
 @login_required
 def index():
     # return "Привіт, світ!"
-    return redirect(url_for('profile'))
+    return redirect(url_for('profile', user_id=current_user.id))
 
-@app.route('/profile')
+@app.route('/profile/<user_id>')
 @login_required
-def profile():
+def profile(user_id):
+    user = User.query.get_or_404(user_id)
     return render_template('profile.html',
                            title='User profile',
-                           user=current_user,
-                           houses=current_user.houses)
+                           user=user,
+                           houses=user.houses)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
