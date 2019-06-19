@@ -13,6 +13,7 @@
 * pip 19.0.3
 * Flask 1.0.2
 * Flask-WTF
+* Jinja2 (залежність Flask)
 * Flask-SQLAlchemy
 * Flask-Migrate
 * Flask-Login

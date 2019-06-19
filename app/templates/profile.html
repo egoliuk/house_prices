@@ -9,15 +9,6 @@
     </table>
     <hr>
     {% for house in houses %}
-    <table>
-        <tr valign="top">
-            <td><img src="{{ house.purveyor.avatar(36) }}"></td>
-            <td>{{ house.purveyor.username }} add house:<br>{{ house.Id }}</td>
-        </tr>
-        <tr>
-            <td>House {{ house.Id }} costs</td>
-            <td><b>{{ house.SalePrice }}</b>$</td>
-        </tr>
-    </table>
+        {% include '_house.html' %}
     {% endfor %}
 {% endblock %}
