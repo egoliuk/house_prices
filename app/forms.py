@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 from app.models import User
 
 class LoginForm(FlaskForm):
@@ -27,3 +28,12 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+# TODO implement form to add one House manually
+# class HouseForm(FlaskForm):
+#     SalePrice = FloatField('Sale Price', default=0.0, validators=[DataRequired()])
+#     submit = SubmitField('Submit')
+
+class UploadDatasetForm(FlaskForm):
+    dataset = FileField(validators=[FileRequired(), FileAllowed(['csv'], 'CSV only!')])
+    submit = SubmitField('Upload')

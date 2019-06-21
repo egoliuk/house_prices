@@ -3,10 +3,13 @@
 from flask import render_template, flash, redirect, request, url_for
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, UploadDatasetForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, House
 from datetime import datetime
+from werkzeug.utils import secure_filename
+import os
+from app.utilities import convert_uploaded_csv_to_dataframe
 
 @app.before_request
 def before_request():
@@ -65,3 +68,23 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/upload_dataset', methods=['GET', 'POST'])
+@login_required
+def upload_dataset():
+    form = UploadDatasetForm()
+    if form.validate_on_submit():
+        df = convert_uploaded_csv_to_dataframe(request.files)
+        houses = []
+        for index, row in df.iterrows():
+            h = House(MSZoning=row['MSZoning'],
+                      LotArea=row['LotArea'],
+                      SalePrice=row.get('SalePrice', default=0),
+                      user_id=current_user.id)
+            houses.append(h)
+
+        db.session.bulk_save_objects(houses)
+        db.session.commit()
+        return redirect(url_for('index'))
+
+    return render_template('upload_dataset.html', form=form)

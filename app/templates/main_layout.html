@@ -12,6 +12,7 @@
     <div>
         House prices:
         <a href="{{ url_for('profile', user_id=current_user.id) }}">User profile</a>
+        <a href="{{ url_for('upload_dataset') }}">Upload dataset</a>
         {% if current_user.is_anonymous %}
         <a href="{{ url_for('login') }}">Login</a>
         {% else %}

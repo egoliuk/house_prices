@@ -1,0 +1,15 @@
+{% extends "main_layout.html" %}
+
+{% block content %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.dataset.label }}<br>
+            {{ form.dataset() }}<br>
+            {% for error in form.dataset.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

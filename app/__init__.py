@@ -41,4 +41,4 @@ if not app.debug:
         app.logger.setLevel(logging.INFO)
         app.logger.info('House Prices startup')
 
-from app import routes, models, errors
+from app import routes, models, errors, utilities
