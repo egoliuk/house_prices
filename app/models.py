@@ -46,7 +46,7 @@ class MSZoning(enum.Enum):
 class House(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
     SalePrice = db.Column(db.Float, index=True, nullable=True)
-    MSSubClass = db.Column(db.Enum(MSZoning))
+    MSZoning = db.Column(db.String(32))
     LotArea = db.Column(db.Float)
     created = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     updated = db.Column(db.DateTime, index=True, default=datetime.utcnow)
