@@ -40,12 +40,12 @@ source venv/bin/activate
 
 Перевірити версію pip, якщо треба оновити версію
 ```sh
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ```
 
 Встановити Flask у віртуальне середовище
 ```sh
-pip install flask
+python3 -m pip install flask
 ```
 
 Задати змінну оточення FLASK_APP
@@ -56,33 +56,39 @@ export FLASK_APP=house_prices.py
 
 Встановити Flask-WTF
 ```sh
-pip install flask-wtf
+python3 -m pip install flask-wtf
 ```
 Flask-WTF - це розширення до Flask, для роботи за веб-формами. 
 Воно є обгорткою навколо WTForms.
 
+Установимо 'email_validator' для підтримки валідатора форми з email адресою
+
+```sh
+python3 -m pip install email_validator
+```
+
 Встановити Flask-SQLAlchemy
 ```sh
-pip install flask-sqlalchemy
+python3 -m pip install flask-sqlalchemy
 ```
 Flask-SQLAlchemy - це розширення для Flask, 
 яке є обгорткою для популярного ORM пакета SQLAlchemy.
 
 Встановити Flask-Migrate
 ```sh
-pip install flask-migrate
+python3 -m pip install flask-migrate
 ```
 Flask-Migrate - це розширення для Flask, 
 яке є обгорткою для Alembic, основи для міграцію біз даних SQLAlchemy.
 
 Встановити Flask-Login
 ```sh
-pip install flask-login
+python3 -m pip install flask-login
 ```
 
 Встановити pandas
 ```sh
-pip install pandas
+python3 -m pip install pandas
 ```
 
 #### Змінні оточення
